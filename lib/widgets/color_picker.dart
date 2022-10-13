@@ -8,6 +8,7 @@ class ThemeBottomSheet extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final bgColor = ref.watch(colorProvider);
     final List<String> colorList = [
       '#edf095',
       '#f09592',
@@ -42,20 +43,21 @@ class ThemeBottomSheet extends ConsumerWidget {
               ref.read(colorProvider.notifier).state = colorList[index];
             },
             child: Container(
-              width: 50,
-              height: 50,
-              decoration: BoxDecoration(
-                color: HexColor(colorList[index]),
-                shape: BoxShape.circle,
-                border: Border.all(width: 1, color: Colors.black12),
-              ),
-              child: const Center(
-                child: Icon(
-                  Icons.check,
-                  color: Colors.white,
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: HexColor(colorList[index]),
+                  shape: BoxShape.circle,
+                  border: Border.all(width: 1, color: Colors.black12),
                 ),
-              ),
-            ),
+                child: bgColor == colorList[index]
+                    ? const Center(
+                        child: Icon(
+                          Icons.check,
+                          color: Colors.white,
+                        ),
+                      )
+                    : const SizedBox.shrink()),
           );
         },
       ),

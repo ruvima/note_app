@@ -16,7 +16,7 @@ class DetailScreen extends ConsumerWidget {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: HexColor(note.color!),
+        backgroundColor: HexColor(note.color),
         appBar: DetailsAppBar(note: note),
         body: Padding(
           padding: const EdgeInsets.symmetric(

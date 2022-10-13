@@ -9,3 +9,5 @@ final noteTitleProvider =
 
 final noteDescProvider =
     Provider.autoDispose<TextEditingController>((_) => TextEditingController());
+
+final colorProvider = StateProvider<String>((ref) => '#f2e7aa');

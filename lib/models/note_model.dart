@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
 Uuid uuid = const Uuid();
@@ -8,12 +7,12 @@ class Note {
   final String title;
   final String desc;
   // final Timestamp createAt;
-  final Color color;
+  final String color;
   Note({
     required this.title,
     String? id,
     required this.desc,
     // required this.createAt,
-    this.color = Colors.blue,
+    required this.color,
   }) : id = id ?? uuid.v4();
 }

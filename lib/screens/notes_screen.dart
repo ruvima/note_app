@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/providers/form_provider.dart';
 import 'package:note_app/providers/note_list_provider.dart';
-import 'package:note_app/screens/add_note_screen.dart';
+import 'package:note_app/screens/note_mode_screen.dart';
 import 'package:note_app/screens/detail_screen.dart';
 import 'package:note_app/utils/colors.dart';
 
@@ -34,7 +34,7 @@ class NotesPages extends ConsumerWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const AddNoteScreen(
+                      builder: (context) => const NoteModeScreen(
                         formMode: FormMode.add,
                       ),
                     ));
@@ -70,6 +70,24 @@ class ShowNotes extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final List<Note> notesList = ref.watch(noteListProvider).notes;
+
+    Widget showBackground(int direction) {
+      return Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.red[400],
+        ),
+        margin: const EdgeInsets.all(4.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        alignment:
+            direction == 0 ? Alignment.centerLeft : Alignment.centerRight,
+        child: const Icon(
+          Icons.delete,
+          size: 30,
+          color: Colors.white,
+        ),
+      );
+    }
 
     return ListView.builder(
       primary: false,

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:note_app/providers/note_list_provider.dart';
 import 'package:note_app/providers/form_provider.dart';
 import 'package:note_app/utils/colors.dart';
 import 'package:note_app/widgets/color_picker.dart';
 
-class AddNoteScreen extends ConsumerWidget {
-  const AddNoteScreen({
+class NoteModeScreen extends ConsumerWidget {
+  const NoteModeScreen({
     Key? key,
     this.validator,
     this.id,

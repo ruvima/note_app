@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/providers/form_provider.dart';
 import 'package:note_app/providers/note_list_provider.dart';
-import 'package:note_app/screens/add_note_screen.dart';
+import 'package:note_app/screens/note_mode_screen.dart';
 import 'package:note_app/utils/colors.dart';
 
 class DetailScreen extends ConsumerWidget {
@@ -77,7 +77,7 @@ class DetailsAppBar extends ConsumerWidget implements PreferredSizeWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddNoteScreen(
+                  builder: (context) => NoteModeScreen(
                     id: note.id,
                     formMode: FormMode.edit,
                   ),

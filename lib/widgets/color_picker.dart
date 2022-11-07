@@ -9,7 +9,7 @@ class ThemeBottomSheet extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final bgColor = ref.watch(colorProvider);
-    final List<String> colorList = [
+    final List<String> _colorList = [
       '#edf095',
       '#f09592',
       '#f0bc92',
@@ -29,7 +29,7 @@ class ThemeBottomSheet extends ConsumerWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 20),
       child: ListView.separated(
-        itemCount: colorList.length,
+        itemCount: _colorList.length,
         separatorBuilder: (context, index) => const SizedBox(
           width: 10,
         ),
@@ -40,17 +40,17 @@ class ThemeBottomSheet extends ConsumerWidget {
           return InkWell(
             borderRadius: BorderRadius.circular(20),
             onTap: () {
-              ref.read(colorProvider.notifier).state = colorList[index];
+              ref.read(colorProvider.notifier).state = _colorList[index];
             },
             child: Container(
                 width: 50,
                 height: 50,
                 decoration: BoxDecoration(
-                  color: HexColor(colorList[index]),
+                  color: HexColor(_colorList[index]),
                   shape: BoxShape.circle,
                   border: Border.all(width: 1, color: Colors.black12),
                 ),
-                child: bgColor == colorList[index]
+                child: bgColor == _colorList[index]
                     ? const Center(
                         child: Icon(
                           Icons.check,

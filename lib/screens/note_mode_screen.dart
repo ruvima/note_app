@@ -30,9 +30,7 @@ class NoteModeScreen extends ConsumerWidget {
           foregroundColor: Colors.black,
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          title: const Text(
-            'Add new Note',
-          ),
+          title: Text(formMode == FormMode.add ? 'Add new note' : 'Edit note'),
           centerTitle: true,
           actions: [
             IconButton(
